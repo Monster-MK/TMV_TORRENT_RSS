@@ -15,7 +15,7 @@ GROUP_ID = int(genv("GROUP_ID", "-1002341945360"))  # add group id where your le
 
 DATABASE_URL = genv(
     "DATABASE_URL",
-    "",
+    "mongodb+srv://jeevanantham8157:1055221@leechbot.gpkuo.mongodb.net/?retryWrites=true&w=majority&appName=Leechbot",
 )
 
 USER_SESSION_STRING = genv(
