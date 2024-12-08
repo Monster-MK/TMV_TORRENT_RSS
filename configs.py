@@ -11,7 +11,7 @@ SUPPORT_GROUP = genv("SUPPORT_GROUP", "TGHelpingGroup")
 
 UPDATES_CHANNEL = genv("UPDATES_CHANNEL", "PlayTamilX")
 
-GROUP_ID = int(genv("GROUP_ID", "-1002341945360"))  # add group id where your leech is added
+GROUP_ID = int(genv("GROUP_ID", "-1002341945360"))
 
 DATABASE_URL = genv(
     "DATABASE_URL",
@@ -20,10 +20,10 @@ DATABASE_URL = genv(
 
 USER_SESSION_STRING = genv(
     "USER_SESSION_STRING",
-    "BQFenPAAxwowyQ1289EiQZkXKhK2kVcM7wqu6XD5w8IB45uuFhFz3tYA6GjzaskOBBDzc3afhVcyFqqzFaZJTNkD8ewXs4l0utCOa0XDIJ8BpaQOKHRvGMW0hadA4yMlTsKfSXIazs5n6Wyv0ELS_MMmwv8mxFdTIgmWZWhOWstXQvc-fifrkMjcx1zpj6SwnETcUsgNTy5TAi_13_FLO3yA3hAXB6mEs9H22LlXjQSYr1Rd7-bJ2iwNyfuEK4-0zDBcW8JlxQ-_GPieLFLhAZPJyZUxD3mFMKRQKiktxTB9s2CW_LA4t8xjyxDxJz-WiXrXboP3prFymy_7AsQY2p6hbBB3FQAAAAGTFHWXAA",
+    "BQFenPAAqpAxlPtr8kdX-iYfiC-X48BUAagnHovP8jQvbdZNnsmDFkmnfnrZkgXF38m_iLP4rRHa_3CevHtFG9R6Nfd7Zqj9JBM-wzRHGq6EOWdP-PbIxiOZ1xqrag1PTzufrksCI0Ev5-bIhjrjPg3Ep2NuyGC7XQ4XUByGMcthXV2GYQFLlnOveecXdaKHlqVE4i161N5cSUgkVoctK_NHUPNCxaQmgXmZ5mAshVMXkSEYGPy35TPzzn54lubIUDgafagS5x1tHqMom3DKZ03PMGP0W-49x7GKAgag42SuB5BRoSakz4IqQIuyrPNEEblXmWFNLNEkKyJqe5RLlApgfdaG6wAAAAGTFHWXAA",
 )
 
-SERVER_URL = genv("SERVER_URL", "https://tamilxscrap.koyeb.app/")
+SERVER_URL = genv("SERVER_URL", "hhttps://scraptestmadx-ed1ff622ea8c.herokuapp.com/")
 
 
 RSS_CHAT = int(
@@ -65,4 +65,4 @@ ABOUT_TXT = """<b>╔════❰ Tʙ Sʜᴏʀᴛɴᴇʀ Bᴏᴛ ❱═══
 ╚═════❰ @ ❱═════❍</b>"""
 
 
-RELEASES_PATH = genv("RELEASES_PATH", "/index.php?/forums/topic/")  # dont change this
+WEEK_RELEASES_PATH = genv("RELEASES_PATH", "/index.php?/forums/topic/")  # dont change this

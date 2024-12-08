@@ -2,6 +2,7 @@ import os, asyncio
 from configs import *
 from aiohttp import web
 from logger import logger
+import sys
 from pyrogram import Client
 import pyrogram
 from utilities import web_server, ping_server, stop_user, ping_main_server
@@ -11,7 +12,7 @@ pyrogram.utils.MIN_CHAT_ID = -999999999999
 pyrogram.utils.MIN_CHANNEL_ID = -10099999999999900
 
 
-class ShortnerBot(Client):
+class ScrapperBot(Client):
     def __init__(self):
         super().__init__(
             "Scrapper",
@@ -46,4 +47,4 @@ class ShortnerBot(Client):
 
 
 if __name__ == "__main__":
-    ShortnerBot().run()
+    ScrapperBot().run()

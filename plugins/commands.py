@@ -6,6 +6,7 @@ from pyrogram import Client, filters, __version__, enums
 from pyrogram.types import InputMediaPhoto
 from utilities import fetch
 from bs4 import BeautifulSoup
+import logging
 
 
 @Client.on_message(filters.command("start") & filters.private)
@@ -74,7 +75,7 @@ async def page_scrap(client, message):
         await message.reply_text("<b>Please provide a page url after the command.</b>")
         return
 
-    if not BASE_URL + RELEASES_PATH in page_url:
+    if not BASE_URL + WEEK_RELEASES_PATH in page_url:
         await message.reply_text(
             "<b>Command is only used to scrap from 1Tamilmv Site</b>"
         )
@@ -83,7 +84,6 @@ async def page_scrap(client, message):
     user_id = message.from_user.id
 
     try:
-        # Fetch HTML content
         html = await fetch(page_url)
         if not html:
             await message.reply_text(
@@ -93,7 +93,6 @@ async def page_scrap(client, message):
 
         soup = BeautifulSoup(html, "html.parser")
 
-        # Extract image URL
         content_div = soup.find("div", class_="ipsType_richText")
         img_url = None
         if content_div:
@@ -101,14 +100,12 @@ async def page_scrap(client, message):
             if img_tag and img_tag.get("src"):
                 img_url = img_tag["src"]
 
-        # Extract links
         links = []
         for link in soup.find_all("a", href=True):
             if "attachment.php" in link["href"]:
                 link_text = link.get_text(strip=True)
                 links.append({"name": link_text, "link": link["href"]})
 
-        # Build initial part of the caption
         if img_url:
             caption = f"<b>Query : <code>{page_url}</code></b>\n\n"
             caption += f"Image URL:\n<code>{img_url}</code>\n\n"
@@ -117,7 +114,6 @@ async def page_scrap(client, message):
                 f"<b>Movie found, but no image available for '{page_url}'.</b>\n\n"
             )
 
-        # Build the captions with split logic
         captions = []
         if links:
             caption += "<b>Available Torrent Links:</b>"
@@ -132,15 +128,13 @@ async def page_scrap(client, message):
                     caption = chunk_text
                 else:
                     caption += chunk_text
-            captions.append(caption)  # Add the final chunk
+            captions.append(caption) 
         else:
             caption += "<b>\n\nNo links available.</b>"
             captions.append(caption)
 
-        # Append footer only to the last part
         captions[-1] += "\n\n<b><blockquote>〽️ Powered by @MadxBotz</blockquote></b>"
 
-        # Send the image and captions
         if img_url:
             await message.reply_photo(photo=img_url)
 
@@ -151,24 +145,26 @@ async def page_scrap(client, message):
         await message.reply_text(f"Error occurred while processing: {e}")
 
 
-@Client.on_message(filters.private & filters.text & ~filters.command(["list", "get"]))
+@Client.on_message(
+    filters.private
+    & filters.text
+    & ~filters.command(["list", "get"])
+)
 async def movie_result_1(client, message):
     movie_name = message.text.strip()
     user_id = message.from_user.id
 
-    if BASE_URL + RELEASES_PATH in movie_name:
+    if BASE_URL + WEEK_RELEASES_PATH in movie_name:
         await message.reply_text(
             "<b>Use /scrap command to Scrap the Links from Page</b>"
         )
         return
 
     try:
-        movie_docs = await db.search_movie(movie_name)  # Fetch all matching documents
+        movie_docs = await db.search_movie(movie_name) 
 
         if movie_docs:
-            # Get the image URL from the first document
             img_url = movie_docs[0].get("img_url", None)
-            # Compile all available links and names
             links = [(doc.get("name"), doc.get("link")) for doc in movie_docs]
 
             if img_url:
@@ -219,14 +215,13 @@ async def movie_result_2(client, message):
 
     movie_name = command_text[5:].strip()
 
-    # Ensure there's a movie name
     if not movie_name:
         await message.reply_text(
             "<b>Please provide a movie name and year after the command.</b>"
         )
         return
 
-    if BASE_URL + RELEASES_PATH in movie_name:
+    if BASE_URL + WEEK_RELEASES_PATH in movie_name:
         await message.reply_text(
             "<b>Use /scrap command to Scrap the Links from Page</b>"
         )
@@ -290,7 +285,7 @@ async def list_documents(client, message):
     try:
         documents = await db.get_last_documents(
             40
-        )  # Assuming this fetches the last 10 documents
+        )
         paginated_docs = []
 
         for document in documents:

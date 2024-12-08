@@ -40,17 +40,15 @@ async def is_valid_link(url):
 
 
 async def download_file(url, local_filename):
-    max_retries = 5  # Maximum number of retries
+    max_retries = 5
     for attempt in range(max_retries):
         try:
             response, expected_size = await fetch(url)
             if response:
                 with open(local_filename, "wb") as f:
-                    # Write in chunks to avoid memory issues with large files
                     for chunk in response.iter_content(chunk_size=8192):
                         f.write(chunk)
 
-                # Check if the downloaded file size matches the expected size
                 if os.path.getsize(local_filename) == expected_size:
                     logging.info(f"Downloaded {local_filename} successfully.")
                     return True
@@ -58,7 +56,7 @@ async def download_file(url, local_filename):
                     logging.error(
                         f"Downloaded file size does not match expected size for {url}. Attempt {attempt + 1}/{max_retries}."
                     )
-                    os.remove(local_filename)  # Remove incomplete file
+                    os.remove(local_filename)
             else:
                 logging.error(
                     f"Failed to fetch {url}. Attempt {attempt + 1}/{max_retries}."
@@ -69,7 +67,7 @@ async def download_file(url, local_filename):
                 f"Failed to download file from {url}: {e}. Attempt {attempt + 1}/{max_retries}."
             )
 
-        await asyncio.sleep(1)  # Wait before retrying
+        await asyncio.sleep(1)
 
     logging.error(f"Failed to download file from {url} after {max_retries} attempts.")
     return False
@@ -129,9 +127,8 @@ class Database:
     def __init__(self, url, db_name):
         self.db = AsyncIOMotorClient(url)[db_name]
         self.users_coll = self.db.users
-        self.old_links_coll = self.db.links
         self.links_coll = self.db.attachments
-
+        
     async def add_user(self, id):
         if not await self.is_present(id):
             await self.users_coll.insert_one(dict(id=id))
@@ -178,7 +175,7 @@ class Database:
                 new_document = {
                     "img_url": img_url,
                     "name": link["name"],
-                    "link": link_path,  # Store only the path
+                    "link": link_path,
                     "added_on": datetime.utcnow(),
                 }
                 await self.links_coll.insert_one(new_document)
