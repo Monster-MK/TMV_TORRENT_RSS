@@ -53,7 +53,7 @@ Available Commands
 -> /get - To Get Torrent Link of that Movie
 -> /list - To get last 10 Movie/Series details
 
-Updates - ⍟ @MadxBotz"""
+Updates - ⍟ @TamilxLeech"""
 
 ABOUT_TXT = """<b>╔════❰ Tʙ Sʜᴏʀᴛɴᴇʀ Bᴏᴛ ❱═══❍
 ║ ┏━━━━━━━━━❥
