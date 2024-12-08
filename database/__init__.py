@@ -80,7 +80,7 @@ async def send_new_link_notification(links):
             return
 
         for link in links:
-            local_filename = f"downloads/@MadxBotz {link['name']}.torrent"
+            local_filename = f"downloads/TamilxLeech {link['name']}.torrent"
 
             if await is_valid_link(link["link"]):
                 if await download_file(link["link"], local_filename):
@@ -90,9 +90,9 @@ async def send_new_link_notification(links):
                             document=local_filename,
                             thumb="database/thumb.jpeg",
                             caption=f"""
-<b>@MadxBotz {link['name']}
+<b>@TamilxLeech {link['name']}
 
-<blockquote>〽️ Powered by @MadxBotz</blockquote></b>""",
+<blockquote>〽️ Powered by @TamilxLeech</blockquote></b>""",
                         )
 
                         await User.send_message(
@@ -106,9 +106,9 @@ async def send_new_link_notification(links):
                             document=local_filename,
                             thumb="database/thumb.jpeg",
                             caption=f"""
-<b>@MadxBotz {link['name']}
+<b>@TamilxLeech {link['name']}
 
-<blockquote>〽️ Powered by @MadxBotz</blockquote></b>""",
+<blockquote>〽️ Powered by @TamilxLeech</blockquote></b>""",
                         )
                     except Exception as e:
                         logging.error(
@@ -183,4 +183,4 @@ class Database:
                 await send_new_link_notification([link])
 
 
-db = Database(DATABASE_URL, "MadxBotz_Scrapper")
+db = Database(DATABASE_URL, "TamilxScrap")
