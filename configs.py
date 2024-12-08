@@ -23,7 +23,7 @@ USER_SESSION_STRING = genv(
     "BQFenPAAqpAxlPtr8kdX-iYfiC-X48BUAagnHovP8jQvbdZNnsmDFkmnfnrZkgXF38m_iLP4rRHa_3CevHtFG9R6Nfd7Zqj9JBM-wzRHGq6EOWdP-PbIxiOZ1xqrag1PTzufrksCI0Ev5-bIhjrjPg3Ep2NuyGC7XQ4XUByGMcthXV2GYQFLlnOveecXdaKHlqVE4i161N5cSUgkVoctK_NHUPNCxaQmgXmZ5mAshVMXkSEYGPy35TPzzn54lubIUDgafagS5x1tHqMom3DKZ03PMGP0W-49x7GKAgag42SuB5BRoSakz4IqQIuyrPNEEblXmWFNLNEkKyJqe5RLlApgfdaG6wAAAAGTFHWXAA",
 )
 
-SERVER_URL = genv("SERVER_URL", "hhttps://scraptestmadx-ed1ff622ea8c.herokuapp.com/")
+SERVER_URL = genv("SERVER_URL", "https://scraptestmadx-ed1ff622ea8c.herokuapp.com/")
 
 
 RSS_CHAT = int(
