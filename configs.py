@@ -27,11 +27,11 @@ SERVER_URL = genv("SERVER_URL", "https://scraptestmadx-ed1ff622ea8c.herokuapp.co
 
 
 RSS_CHAT = int(
-    genv("RSS_CHAT", "-1002335041395")
+    genv("RSS_CHAT", "-1002426963681")
 )  # add the channel id where the torrent files need to be sent
 
 BASE_URL = genv(
-    "BASE_URL", "https://www.1tamilmv.fit"
+    "BASE_URL", "https://www.1tamilmv.ac"
 ).lower()  # update the main domain if changed
 
 
