@@ -11,7 +11,7 @@ SUPPORT_GROUP = genv("SUPPORT_GROUP", "TGHelpingGroup")
 
 UPDATES_CHANNEL = genv("UPDATES_CHANNEL", "TamizhFiles")
 
-GROUP_ID = int(genv("GROUP_ID", "-1002325685641"))
+GROUP_ID = int(genv("GROUP_ID", "-1002341945360"))
 
 DATABASE_URL = genv(
     "DATABASE_URL",
