@@ -183,4 +183,4 @@ class Database:
                 await send_new_link_notification([link])
 
 
-db = Database(DATABASE_URL, "TamilxScrap")
+db = Database(DATABASE_URL, "HeartxScrap")
