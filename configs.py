@@ -15,12 +15,12 @@ GROUP_ID = int(genv("GROUP_ID", "-1002325685641"))
 
 DATABASE_URL = genv(
     "DATABASE_URL",
-    "mongodb+srv://jeevanantham8157:1055221@leechbot.gpkuo.mongodb.net/?retryWrites=true&w=majority&appName=Leechbot",
+    "mongodb+srv://jeevanantham8157:1055221@filestorebot.rahsk.mongodb.net/?retryWrites=true&w=majority&appName=Filestorebot",
 )
 
 USER_SESSION_STRING = genv(
     "USER_SESSION_STRING",
-    "BQFenPAATUkq6dj37A_neoS6WU1_TbdRZzcIrAdQeNEW7njkXqhw9u7fJN8tN1VItUcE_ps35NzaY6gwxmY6l7MLD76rooMUcdd7uiBAa4f-GOBU_i3FcVZi6eMmMP-sq45T6W7uy-0Gc2LjAJA2oaHFfiIqJABEOwggWC0y6-hLZgK4fMkWHtTBygOioFVFZ23JNEI5nT7iNflhJ3vxcVtAD5YZ_mBgkXIPS99iMioD4Id4K5q4_kNtDOUzkKr9GyCikjqxBvEO2I4oOWKwvSnD0cpipQJpnnxni7kuhN_T1TNgoxapvtXfYEyGjhBuaGEl2NBD_PYtBCH1gQbO_U6ZU8gMxwAAAAGTFHWXAA",
+    "BQFenPAASdfpOmlYrWej_OFfcpKdr0GdpvKE8gJ2NOnCWTdIqPl1hi7N28ytJJhGEjTuuPrzW1zCAVDtW_v-VPTH0wz9p1gw4eMvsRWS-qQNRgzCS_P_G-vAoPYaWOY5fA_vkrFotvdFUwUgNH3G-y5nl_uxlSygPlwjNq5OYF0kE3DH7Lb9DGIzbivv1YCRUAJDZ3LE_rWkBAfBKHE7XAdPFV7-kf8egNBgkeVrUOPwUUwnmEwWzTN2OQkc1rduFNkuAsDuQ6vDaJg9zWhrhtwEScMraVnZ0QqkA-_VMutzaIpHw7MEr08SdXXl8yJOlrUsEOg5iqC1PdD_1vQWHl9hMYvfAwAAAAGTFHWXAA",
 )
 
 SERVER_URL = genv("SERVER_URL", "https://scraptestmadx-ed1ff622ea8c.herokuapp.com/")
