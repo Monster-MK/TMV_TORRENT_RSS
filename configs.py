@@ -20,7 +20,7 @@ DATABASE_URL = genv(
 
 USER_SESSION_STRING = genv(
     "USER_SESSION_STRING",
-    "BQFenPAAuQCUq2DQtoSmBz51G8524TGonSD0qVEWnJLCK1_LQzsv3M4KbWxhrtg5nnRr1RELuSSdmyQAH2XxBW0-DodLEa0COn2YoYO_d152QzZuREsSw_zjHhymvgS-ElVa1h6qRscDtfQLG3hwCt9P2LNHzrDGiY9kQpUxomVn8wpRRGfGf9CpQ1KGVse9KQ0sMqQYWxtrqY-5u_JE83fpr3iTrvzTqgqDLVgY4I-r3w7NfsdIM3nZvmZ3tHi1FkEvYTh6bsXCPS6dCUXzhYKes5oysAKgtWiNqDwK-i9rye7J5-qoPyf5wn1FWDDXrIbZf4MuJ9rxoBv3UQg-Ufny5BJwpwAAAAGTFHWXAA",
+    "BQFenPAAIj8e87KgL7udCHfbbxaz71kTBdVeYtMBpJ1fuZt_9OSljhfRrGmm6oeIWHR0l7tnKaP4HgMZvk1GcnMnAVhhiOu3ajAc8I7bOM5TnsHPzIZhdT0csFKURrUGy5twYCJe81oWKCHEwzk2Y-NUoSpPCKM5OXTuErgc1qDadOZZEn0_jMsCF9RqZoXOvcs3ZfCtjc3apZZb53MLWyp3CxVbnTj-5va-pPfxqKrwVZqI38LpM5hby7UAkT7EaKT2cpDDB8f285C33SB_vQFxBtKLh70yhVU9hooQf-ZK7yGiXQMWUcT4R1_X5xAbI4yOCm45UGZA048EiDfGmbNJGeGS1QAAAAGTFHWXAA",
 )
 
 SERVER_URL = genv("SERVER_URL", "https://heartxscrapper.koyeb.app/")
@@ -43,7 +43,7 @@ BASE_URL = genv(
 START_TXT = """<b>Hello {}, I am a Scrapper Bot!.
 ๏ I can scrap links from 1tamilmv and update it in Bot..
 ๏ Click on the help menu button below to get information about my commands.
-๏ Powered By @TamilXLeech</b>"""
+๏ Powered By @HeartXbotz</b>"""
 
 
 HELP_TXT = """Send any Movie Name and I will provide torrent links.
