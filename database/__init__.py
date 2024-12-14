@@ -92,7 +92,7 @@ async def send_new_link_notification(links):
                             caption=f"""
 <b>@TamilxLeech {link['name']}
 
-<blockquote>〽️ Powered by @TamilxLeech</blockquote></b>""",
+<blockquote>〽️ Powered by @HeartXBotz</blockquote></b>""",
                         )
 
                         await User.send_message(
@@ -108,7 +108,7 @@ async def send_new_link_notification(links):
                             caption=f"""
 <b>@TamilxLeech {link['name']}
 
-<blockquote>〽️ Powered by @TamilxLeech</blockquote></b>""",
+<blockquote>〽️ Powered by @HeartXBotz</blockquote></b>""",
                         )
                     except Exception as e:
                         logging.error(
