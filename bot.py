@@ -27,7 +27,7 @@ class ScrapperBot(Client):
         app = web.AppRunner(await web_server())
         await app.setup()
         ba = "0.0.0.0"
-        port = int(os.getenv("PORT", 8080))
+        port = int(os.getenv("PORT", 80))
         await web.TCPSite(app, ba, port).start()
         await super().start()
         asyncio.create_task(ping_main_server())
