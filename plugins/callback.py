@@ -31,7 +31,7 @@ async def callback(bot, query):
                     [
                         InlineKeyboardButton("Aʙᴏᴜᴛ ★", callback_data="about"),
                         InlineKeyboardButton(
-                            "Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ ⌘", url="https://t.me/TamilxLeech"
+                            "Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ ⌘", url="https://t.me/TGHelpingGroup"
                         ),
                     ],
                     [InlineKeyboardButton("Bᴀᴄᴋ ✰", callback_data="start")],
@@ -46,10 +46,10 @@ async def callback(bot, query):
                 [
                     [
                         InlineKeyboardButton(
-                            "Uᴘᴅᴀᴛᴇs 🙌", url="https://t.me/TamilxLeech"
+                            "Uᴘᴅᴀᴛᴇs 🙌", url="https://t.me/HeartXBotz"
                         ),
                         InlineKeyboardButton(
-                            "Dᴇᴠᴇʟᴏᴘᴇʀ ⚡", url="https://t.me/TamilxLeech"
+                            "Dᴇᴠᴇʟᴏᴘᴇʀ ⚡", url="https://t.me/Heart_thieft"
                         ),
                     ],
                     [InlineKeyboardButton("Bᴀᴄᴋ 𖦹", callback_data="start")],
@@ -68,10 +68,10 @@ async def callback(bot, query):
                     ],
                     [
                         InlineKeyboardButton(
-                            "Cʜᴀɴɴᴇʟ", url=f"https://t.me/TamilxLeech"
+                            "Cʜᴀɴɴᴇʟ", url=f"https://t.me/HeartXBotz"
                         ),
                         InlineKeyboardButton(
-                            "Sᴜᴩᴩᴏʀᴛ", url=f"https://t.me/TamilxLeech"
+                            "Sᴜᴩᴩᴏʀᴛ", url=f"https://t.me/TGHelpingGroup"
                         ),
                     ],
                     [InlineKeyboardButton("Cʟᴏsᴇ ❌", callback_data="delete")],
