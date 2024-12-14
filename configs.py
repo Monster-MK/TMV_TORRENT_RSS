@@ -23,7 +23,7 @@ USER_SESSION_STRING = genv(
     "BQFenPAASdfpOmlYrWej_OFfcpKdr0GdpvKE8gJ2NOnCWTdIqPl1hi7N28ytJJhGEjTuuPrzW1zCAVDtW_v-VPTH0wz9p1gw4eMvsRWS-qQNRgzCS_P_G-vAoPYaWOY5fA_vkrFotvdFUwUgNH3G-y5nl_uxlSygPlwjNq5OYF0kE3DH7Lb9DGIzbivv1YCRUAJDZ3LE_rWkBAfBKHE7XAdPFV7-kf8egNBgkeVrUOPwUUwnmEwWzTN2OQkc1rduFNkuAsDuQ6vDaJg9zWhrhtwEScMraVnZ0QqkA-_VMutzaIpHw7MEr08SdXXl8yJOlrUsEOg5iqC1PdD_1vQWHl9hMYvfAwAAAAGTFHWXAA",
 )
 
-SERVER_URL = genv("SERVER_URL", "https://scraptestmadx-ed1ff622ea8c.herokuapp.com/")
+SERVER_URL = genv("SERVER_URL", "https://web-fp63vcz8q4vh.up-de-fra1-k8s-1.apps.run-on-seenode.com/")
 
 
 RSS_CHAT = int(
@@ -53,12 +53,12 @@ Available Commands
 -> /get - To Get Torrent Link of that Movie
 -> /list - To get last 10 Movie/Series details
 
-Updates - ⍟ @TamilxLeech"""
+Updates - ⍟ @HeartXBotz"""
 
 ABOUT_TXT = """<b>╔════❰ Tʙ Sʜᴏʀᴛɴᴇʀ Bᴏᴛ ❱═══❍
 ║ ┏━━━━━━━━━❥
 ║ ┣ Mʏ ɴᴀᴍᴇ -> {}
-║ ┣ Uᴘᴅᴀᴛᴇꜱ -> <a href="tg://TamilXLeech">••Bᴏᴛs••</a>
+║ ┣ Uᴘᴅᴀᴛᴇꜱ -> <a href="tg://HeartXBotz">••Bᴏᴛs••</a>
 ║ ┣ 𝖲ᴜᴘᴘᴏʀᴛ -> <a href="tg://TGHelpingGroup"> Bᴏᴛs Sᴜᴩᴩᴏʀᴛ</a>
 ║ ┣ ๏ Cʜᴇᴄᴋ ʜᴇʟᴘ ᴛᴏ ᴋɴᴏᴡ ᴍᴏʀᴇ.
 ║ ┗━━━━━━━━━❥
