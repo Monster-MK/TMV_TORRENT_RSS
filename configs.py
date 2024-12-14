@@ -23,7 +23,7 @@ USER_SESSION_STRING = genv(
     "BQFenPAASdfpOmlYrWej_OFfcpKdr0GdpvKE8gJ2NOnCWTdIqPl1hi7N28ytJJhGEjTuuPrzW1zCAVDtW_v-VPTH0wz9p1gw4eMvsRWS-qQNRgzCS_P_G-vAoPYaWOY5fA_vkrFotvdFUwUgNH3G-y5nl_uxlSygPlwjNq5OYF0kE3DH7Lb9DGIzbivv1YCRUAJDZ3LE_rWkBAfBKHE7XAdPFV7-kf8egNBgkeVrUOPwUUwnmEwWzTN2OQkc1rduFNkuAsDuQ6vDaJg9zWhrhtwEScMraVnZ0QqkA-_VMutzaIpHw7MEr08SdXXl8yJOlrUsEOg5iqC1PdD_1vQWHl9hMYvfAwAAAAGTFHWXAA",
 )
 
-SERVER_URL = genv("SERVER_URL", "https://web-fp63vcz8q4vh.up-de-fra1-k8s-1.apps.run-on-seenode.com/")
+SERVER_URL = genv("SERVER_URL", "https://heartxscrapper.koyeb.app/")
 
 
 RSS_CHAT = int(
