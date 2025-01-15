@@ -20,7 +20,7 @@ DATABASE_URL = genv(
 
 USER_SESSION_STRING = genv(
     "USER_SESSION_STRING",
-    "BQFenPAAIj8e87KgL7udCHfbbxaz71kTBdVeYtMBpJ1fuZt_9OSljhfRrGmm6oeIWHR0l7tnKaP4HgMZvk1GcnMnAVhhiOu3ajAc8I7bOM5TnsHPzIZhdT0csFKURrUGy5twYCJe81oWKCHEwzk2Y-NUoSpPCKM5OXTuErgc1qDadOZZEn0_jMsCF9RqZoXOvcs3ZfCtjc3apZZb53MLWyp3CxVbnTj-5va-pPfxqKrwVZqI38LpM5hby7UAkT7EaKT2cpDDB8f285C33SB_vQFxBtKLh70yhVU9hooQf-ZK7yGiXQMWUcT4R1_X5xAbI4yOCm45UGZA048EiDfGmbNJGeGS1QAAAAGTFHWXAA",
+    "BQFenPAAO0C3j11XTr7ZW9pFDpxM4Q3w2xpEszLdP1B3EiMrr1bm_qv2O91mU9HwaJh6LCMj0eDCDR-iV3caDdQ00wvqPJH6rGtY3llTq49ewt960A8BQy6g8DrnW-myWJQ2bh36t8e_vehltrvT6BKtvf_AmV1NFz2PUyK5Thpg5L_3C_oO6cUZeyUAFrQo9cA-1xNylb69R6vM8mi5vo9h_21jOJdbAjTWLcDkBy9BUUN2zW6Dk0RKhABLg3CKWFOu8CN2iYZ6pP9CkgLay3F0m1jj_n1t3Q-98LEZZDzfuGPhafPOxILTmAQZilwU9PQVbvDVg-GDZNqeL6j7yZzbrlkjXAAAAAGTFHWXAA",
 )
 
 SERVER_URL = genv("SERVER_URL", "https://heartxscrapper.koyeb.app/")
@@ -31,7 +31,7 @@ RSS_CHAT = int(
 )  # add the channel id where the torrent files need to be sent
 
 BASE_URL = genv(
-    "BASE_URL", "https://www.1tamilmv.ac"
+    "BASE_URL", "https://www.1tamilmv.re"
 ).lower()  # update the main domain if changed
 
 
