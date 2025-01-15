@@ -90,7 +90,7 @@ async def send_new_link_notification(links):
                             document=local_filename,
                             thumb="database/thumb.jpeg",
                             caption=f"""
-<b>@TamilxLeech {link['name']}
+<b>@HeartXBotz {link['name']}
 
 <blockquote>〽️ Powered by @HeartXBotz</blockquote></b>""",
                         )
@@ -106,7 +106,7 @@ async def send_new_link_notification(links):
                             document=local_filename,
                             thumb="database/thumb.jpeg",
                             caption=f"""
-<b>@TamilxLeech {link['name']}
+<b>@HeartXBotz {link['name']}
 
 <blockquote>〽️ Powered by @HeartXBotz</blockquote></b>""",
                         )
