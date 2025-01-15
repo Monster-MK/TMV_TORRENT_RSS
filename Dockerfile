@@ -1,6 +1,6 @@
 FROM python:3.12.7
 
-WORKDIR /MadxBotz
+WORKDIR /HeartxBotz
 
 COPY requirements.txt .
 
