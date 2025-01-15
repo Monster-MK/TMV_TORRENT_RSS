@@ -27,9 +27,9 @@ async def start_handler(c, m):
             [
                 [InlineKeyboardButton("Hᴇʟᴩ Mᴇɴᴜ", callback_data="help")],
                 [
-                    InlineKeyboardButton("Cʜᴀɴɴᴇʟ", url="https://t.me/TamilxLeech"),
+                    InlineKeyboardButton("Cʜᴀɴɴᴇʟ", url="https://t.me/HeartXBotz"),
                     InlineKeyboardButton(
-                        "Sᴜᴩᴩᴏʀᴛ", url=f"https://t.me/TamilxLeech"
+                        "Sᴜᴩᴩᴏʀᴛ", url=f"https://t.me/TGHelpingGroup"
                     ),
                 ],
                 [InlineKeyboardButton("Cʟᴏsᴇ ❌", callback_data="delete")],
