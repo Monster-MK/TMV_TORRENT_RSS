@@ -11,7 +11,7 @@ SUPPORT_GROUP = genv("SUPPORT_GROUP", "TGHelpingGroup")
 
 UPDATES_CHANNEL = genv("UPDATES_CHANNEL", "TamizhFiles")
 
-GROUP_ID = int(genv("GROUP_ID", "-1002470524159"))
+GROUP_ID = int(genv("GROUP_ID", "-1002325685641"))
 
 DATABASE_URL = genv(
     "DATABASE_URL",
@@ -55,7 +55,7 @@ Available Commands
 
 Updates - ⍟ @HeartXBotz"""
 
-ABOUT_TXT = """<b>╔════❰ Tʙ Sʜᴏʀᴛɴᴇʀ Bᴏᴛ ❱═══❍
+ABOUT_TXT = """<b>╔════❰ HeartXBotz ❱═══❍
 ║ ┏━━━━━━━━━❥
 ║ ┣ Mʏ ɴᴀᴍᴇ -> {}
 ║ ┣ Uᴘᴅᴀᴛᴇꜱ -> <a href="tg://HeartXBotz">••Bᴏᴛs••</a>
