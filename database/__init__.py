@@ -97,7 +97,7 @@ async def send_new_link_notification(links):
 
                         await User.send_message(
                             chat_id=GROUP_ID,
-                            text="/qbleech",
+                            text="/qbleech1",
                             reply_to_message_id=sent_msg.id,
                         )
 
