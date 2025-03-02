@@ -31,7 +31,7 @@ RSS_CHAT = int(
 )  # add the channel id where the torrent files need to be sent
 
 BASE_URL = genv(
-    "BASE_URL", "https://www.1tamilmv.bike"
+    "BASE_URL", "https://www.1tamilmv.si"
 ).lower()  # update the main domain if changed
 
 
