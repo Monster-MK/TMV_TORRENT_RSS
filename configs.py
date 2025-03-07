@@ -62,7 +62,7 @@ ABOUT_TXT = """<b>╔════❰ HeartXBotz ❱═══❍
 ║ ┣ 𝖲ᴜᴘᴘᴏʀᴛ -> <a href="tg://TGHelpingGroup"> Bᴏᴛs Sᴜᴩᴩᴏʀᴛ</a>
 ║ ┣ ๏ Cʜᴇᴄᴋ ʜᴇʟᴘ ᴛᴏ ᴋɴᴏᴡ ᴍᴏʀᴇ.
 ║ ┗━━━━━━━━━❥
-╚═════❰ @ ❱═════❍</b>"""
+╚═════❰ @HeartThieft ❱═════❍</b>"""
 
 
 WEEK_RELEASES_PATH = genv("RELEASES_PATH", "/index.php?/forums/topic/")  # dont change this
