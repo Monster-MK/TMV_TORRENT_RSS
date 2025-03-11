@@ -45,7 +45,10 @@ async def fetch(url):
 
     loop = asyncio.get_event_loop()
     try:
-        response = await loop.run_in_executor(executor, requests.get, url, headers=headers, timeout=10)
+        # Use a lambda function to pass headers properly
+        response = await loop.run_in_executor(
+            executor, lambda: requests.get(url, headers=headers, timeout=10)
+        )
         response.raise_for_status()
         return response, int(response.headers.get("Content-Length", 0))
     except requests.exceptions.RequestException as e:
