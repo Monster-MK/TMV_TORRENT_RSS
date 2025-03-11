@@ -36,23 +36,19 @@ User = Client(
 """
 
 async def fetch(url):
-    scraper = cloudscraper.create_scraper()  # Bypasses Cloudflare
+    scraper = cloudscraper.create_scraper()
     loop = asyncio.get_event_loop()
-    
     try:
-        response = await loop.run_in_executor(None, scraper.get, url)
+        response = await loop.run_in_executor(None, lambda: scraper.get(url))
         response.raise_for_status()
-        return response.text
+        return response
     except Exception as e:
         logging.error(f"Error fetching {url}: {str(e)}")
         return None
         
 async def is_valid_link(url):
-    response, _ = await fetch(url)
-    if response is None or response.status_code != 200:
-        logging.warning(f"Invalid URL: {url}")  # Debugging log
-    return response is not None and response.status_code == 200
-
+    response = await fetch(url)
+    return response is not None
 
 async def download_file(url, local_filename):
     logging.info(f"Starting download: {url}")  # Debugging log
