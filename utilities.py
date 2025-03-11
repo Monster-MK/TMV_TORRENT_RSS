@@ -37,7 +37,7 @@ executor = ThreadPoolExecutor()
         logging.error(f"Error fetching {url}: {str(e)}")
         return None"""
 
-async def fetch(url):
+"""async def fetch(url):
     scraper = cloudscraper.create_scraper()  # Bypasses Cloudflare
     loop = asyncio.get_event_loop()
     
@@ -46,6 +46,34 @@ async def fetch(url):
         response.raise_for_status()
         return response.text
     except Exception as e:
+        logging.error(f"Error fetching {url}: {str(e)}")
+        return None"""
+
+import random
+
+USER_AGENTS = [
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+]
+
+async def fetch(url):
+    headers = {
+        "User-Agent": random.choice(USER_AGENTS),
+        "Referer": "https://www.google.com/",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Connection": "keep-alive",
+    }
+
+    loop = asyncio.get_event_loop()
+    try:
+        response = await loop.run_in_executor(
+            executor, lambda: requests.get(url, headers=headers, timeout=10)
+        )
+        response.raise_for_status()
+        return response.text
+    except requests.exceptions.RequestException as e:
         logging.error(f"Error fetching {url}: {str(e)}")
         return None
         
