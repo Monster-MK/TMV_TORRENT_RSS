@@ -1,4 +1,4 @@
-import asyncio, logging, aiohttp, cloudscraper
+import asyncio, logging, aiohttp, cloudscraper, requests
 from bs4 import BeautifulSoup
 import re
 from datetime import datetime
