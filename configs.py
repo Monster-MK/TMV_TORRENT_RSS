@@ -30,11 +30,11 @@ RSS_CHAT = int(
     genv("RSS_CHAT", "-1002426963681")
 )  # add the channel id where the torrent files need to be sent
 
-BASE_URL = genv(
+"""BASE_URL = genv(
     "BASE_URL", "https://www.1tamilmv.com"
-).lower()  # update the main domain if changed
+).lower() """ # update the main domain if changed
 
-
+BASE_URL = genv("BASE_URL", "https://www.1tamilmv.com").lower() # update the main domain if changed
 
 #change the theme as you required
 
