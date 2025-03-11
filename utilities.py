@@ -17,29 +17,26 @@ message_lock = asyncio.Lock()
 
 executor = ThreadPoolExecutor()
 
-
 async def fetch(url):
-  """  headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
-    }"""
-       headers = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0",
-    "Referer": "https://www.google.com/",
-    "Accept-Language": "en-US,en;q=0.9",
-    "Accept-Encoding": "gzip, deflate, br",
-    "Connection": "keep-alive",
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0",
+        "Referer": "https://www.google.com/",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Connection": "keep-alive",
     }
 
     loop = asyncio.get_event_loop()
     try:
-        response = await loop.run_in_executor(executor, requests.get, url, headers)
+        response = await loop.run_in_executor(
+            executor, lambda: requests.get(url, headers=headers, timeout=10)
+        )
         response.raise_for_status()
         return response.text
     except requests.exceptions.RequestException as e:
         logging.error(f"Error fetching {url}: {str(e)}")
         return None
         
-
 def get_size_in_bytes(size_str):
     size_str = size_str.lower()
     size_match = re.search(r"([\d.]+)\s*(gb|mb)", size_str)
