@@ -39,9 +39,11 @@ async def fetch(url):
     }
 
     loop = asyncio.get_event_loop()
+    scraper = cloudscraper.create_scraper()  # Use CloudScraper
+
     try:
-        scraper = cloudscraper.create_scraper()  # Use CloudScraper
-        response = await loop.run_in_executor(executor, scraper.get, url, headers)
+        # Correct way to pass headers
+        response = await loop.run_in_executor(executor, lambda: scraper.get(url, headers=headers))
         response.raise_for_status()
         return response.text
     except requests.exceptions.RequestException as e:
