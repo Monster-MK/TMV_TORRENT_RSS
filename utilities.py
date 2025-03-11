@@ -20,16 +20,12 @@ executor = ThreadPoolExecutor()
 scraper = cloudscraper.create_scraper()
 
 async def fetch(url):
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
-    }
-
-    loop = asyncio.get_event_loop()
+    scraper = cloudscraper.create_scraper()
     try:
-        response = await loop.run_in_executor(executor, scraper.get, url, headers)
+        response = scraper.get(url)
         response.raise_for_status()
         return response.text
-    except Exception as e:
+    except requests.exceptions.RequestException as e:
         logging.error(f"Error fetching {url}: {str(e)}")
         return None
 
