@@ -19,7 +19,7 @@ User = Client(
 )
 
 
-"""async def fetch(url):
+async def fetch(url):
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
     }
@@ -32,9 +32,9 @@ User = Client(
     except requests.exceptions.RequestException as e:
         logging.error(f"Error downloading {url}: {str(e)}")
         return None, 0
-"""
 
-async def fetch(url):
+
+"""async def fetch(url):
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Referer": "https://www.google.com/",
@@ -50,7 +50,7 @@ async def fetch(url):
         return response, int(response.headers.get("Content-Length", 0))
     except requests.exceptions.RequestException as e:
         logging.error(f"Error fetching {url}: {str(e)}")
-        return None, 0
+        return None, 0"""
         
 async def is_valid_link(url):
     response, _ = await fetch(url)
