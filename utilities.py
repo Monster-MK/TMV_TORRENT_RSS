@@ -49,8 +49,6 @@ async def fetch(url):
         logging.error(f"Error fetching {url}: {str(e)}")
         return None
 
-
-        
 def get_size_in_bytes(size_str):
     size_str = size_str.lower()
     size_match = re.search(r"([\d.]+)\s*(gb|mb)", size_str)
