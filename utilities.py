@@ -240,13 +240,7 @@ async def ping_server():
 
 
 async def ping_main_server():
-    try:
-        await User.start()
-        logging.info("User Session started.")
-        await User.send_message(GROUP_ID, "User Session Started")
-    except Exception as e:
-        logging.error(f"Error Starting User: {str(e)}")
-
+    
     while True:
         await asyncio.sleep(250)
         try:
