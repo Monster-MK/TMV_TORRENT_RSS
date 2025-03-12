@@ -19,7 +19,7 @@ User = Client(
     "User", session_string=USER_SESSION_STRING, api_hash=API_HASH, api_id=API_ID
 )
 
-LeoTG = Client("MadxBotz", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
+LeoTG = Client("HeartxBotz", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 
 
 async def fetch(url):
