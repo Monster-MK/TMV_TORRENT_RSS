@@ -38,14 +38,19 @@ executor = ThreadPoolExecutor()
         return None"""
 
 async def fetch(url):
-    scraper = cloudscraper.create_scraper()  # Bypasses Cloudflare
+    scraper = cloudscraper.create_scraper()  # Create a scraper instance to bypass Cloudflare protection
+
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
+    }
+
     loop = asyncio.get_event_loop()
-    
     try:
-        response = await loop.run_in_executor(None, scraper.get, url)
-        response.raise_for_status()
+        # Pass the scraper.get function with arguments to run_in_executor
+        response = await loop.run_in_executor(executor, lambda: scraper.get(url, headers=headers))
+        response.raise_for_status()  # Raise an error for HTTP errors (4xx, 5xx)
         return response.text
-    except Exception as e:
+    except requests.exceptions.RequestException as e:
         logging.error(f"Error fetching {url}: {str(e)}")
         return None
 
