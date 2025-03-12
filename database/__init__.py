@@ -37,14 +37,24 @@ User = Client(
 
 async def fetch(url):
     scraper = cloudscraper.create_scraper()
+
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
+    }
+
     loop = asyncio.get_event_loop()
     try:
-        response = await loop.run_in_executor(None, lambda: scraper.get(url))
-        response.raise_for_status()
-        return response
+        response = await loop.run_in_executor(
+            executor, lambda: scraper.get(url, headers=headers)
+        )
+        response.raise_for_status()  # Ensure response is successful
+        
+        content_length = int(response.headers.get("Content-Length", 0))  # Get size
+
+        return response, content_length  # ✅ Return full response, not just text
     except Exception as e:
         logging.error(f"Error fetching {url}: {str(e)}")
-        return None
+        return None, 0
         
 async def is_valid_link(url):
     response = await fetch(url)
