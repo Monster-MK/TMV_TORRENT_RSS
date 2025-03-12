@@ -93,7 +93,7 @@ async def download_file(url, local_filename):
     return False
 
 async def send_new_link_notification(links):
-    async with User:
+    async with LeoTG:
         logging.info(f"Sending new links: {links}")  # Debugging log
         if not links:
             await User.send_message(chat_id=GROUP_ID, text="Empty Array")
@@ -107,7 +107,7 @@ async def send_new_link_notification(links):
                 if await download_file(link["link"], local_filename):
                     try:
                         logging.info(f"Uploading {local_filename} to Telegram...")  # Debugging log
-                        sent_msg = await User.send_document(
+                        sent_msg = await LeoTG.send_document(
                             chat_id=GROUP_ID,
                             document=local_filename,
                             thumb="database/thumb.jpeg",
@@ -119,13 +119,13 @@ async def send_new_link_notification(links):
 
                         logging.info(f"Sent document ID: {sent_msg.id}")  # Debugging log
 
-                        await User.send_message(
+                        await LeoTG.send_message(
                             chat_id=GROUP_ID,
                             text="/qbleech1",
                             reply_to_message_id=sent_msg.id,
                         )
 
-                        sent_msg = await User.send_document(
+                        sent_msg = await LeoTG.send_document(
                             chat_id=RSS_CHAT,
                             document=local_filename,
                             thumb="database/thumb.jpeg",
