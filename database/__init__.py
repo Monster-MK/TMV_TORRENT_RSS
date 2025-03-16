@@ -10,7 +10,6 @@ import logging
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
 from urllib.parse import urlparse
-import cloudscraper  # Import CloudScraper
 
 executor = ThreadPoolExecutor()
 os.makedirs("downloads", exist_ok=True)
@@ -18,8 +17,6 @@ os.makedirs("downloads", exist_ok=True)
 User = Client(
     "User", session_string=USER_SESSION_STRING, api_hash=API_HASH, api_id=API_ID
 )
-
-LeoTG = Client("HeartxBotz", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 
 
 """async def fetch(url):
@@ -34,26 +31,24 @@ LeoTG = Client("HeartxBotz", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOK
         return response, int(response.headers.get("Content-Length", 0))
     except requests.exceptions.RequestException as e:
         logging.error(f"Error downloading {url}: {str(e)}")
-        return None, 0"""
+        return None, 0
+"""
 
 async def fetch(url):
-    scraper = cloudscraper.create_scraper()
-
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Referer": "https://www.google.com/",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Connection": "keep-alive",
     }
 
     loop = asyncio.get_event_loop()
     try:
-        response = await loop.run_in_executor(
-            executor, lambda: scraper.get(url, headers=headers)
-        )
-        response.raise_for_status()  # Ensure response is successful
-        
-        content_length = int(response.headers.get("Content-Length", 0))  # Get size
-
-        return response, content_length  # ✅ Return full response, not just text
-    except Exception as e:
+        response = await loop.run_in_executor(executor, requests.get, url, headers=headers, timeout=10)
+        response.raise_for_status()
+        return response, int(response.headers.get("Content-Length", 0))
+    except requests.exceptions.RequestException as e:
         logging.error(f"Error fetching {url}: {str(e)}")
         return None, 0
         
@@ -61,8 +56,8 @@ async def is_valid_link(url):
     response, _ = await fetch(url)
     return response is not None and response.status_code == 200
 
+
 async def download_file(url, local_filename):
-    logging.info(f"Starting download: {url}")  # Debugging log
     max_retries = 5
     for attempt in range(max_retries):
         try:
@@ -72,42 +67,43 @@ async def download_file(url, local_filename):
                     for chunk in response.iter_content(chunk_size=8192):
                         f.write(chunk)
 
-                actual_size = os.path.getsize(local_filename)
-                if actual_size == expected_size:
+                if os.path.getsize(local_filename) == expected_size:
                     logging.info(f"Downloaded {local_filename} successfully.")
                     return True
                 else:
                     logging.error(
-                        f"Downloaded file size mismatch: Expected {expected_size}, got {actual_size}"
+                        f"Downloaded file size does not match expected size for {url}. Attempt {attempt + 1}/{max_retries}."
                     )
                     os.remove(local_filename)
             else:
-                logging.error(f"Failed to fetch {url}. Attempt {attempt + 1}/{max_retries}.")
+                logging.error(
+                    f"Failed to fetch {url}. Attempt {attempt + 1}/{max_retries}."
+                )
 
         except Exception as e:
-            logging.error(f"Download failed for {url}: {e}. Attempt {attempt + 1}/{max_retries}.")
+            logging.error(
+                f"Failed to download file from {url}: {e}. Attempt {attempt + 1}/{max_retries}."
+            )
 
         await asyncio.sleep(1)
 
-    logging.error(f"Failed to download file after {max_retries} attempts.")
+    logging.error(f"Failed to download file from {url} after {max_retries} attempts.")
     return False
 
+
 async def send_new_link_notification(links):
-    async with LeoTG:
-        logging.info(f"Sending new links: {links}")  # Debugging log
+    async with User:
         if not links:
             await User.send_message(chat_id=GROUP_ID, text="Empty Array")
             return
 
         for link in links:
-            logging.info(f"Processing link: {link}")  # Debugging log
             local_filename = f"downloads/HeartXBotz {link['name']}.torrent"
 
             if await is_valid_link(link["link"]):
                 if await download_file(link["link"], local_filename):
                     try:
-                        logging.info(f"Uploading {local_filename} to Telegram...")  # Debugging log
-                        sent_msg = await LeoTG.send_document(
+                        sent_msg = await User.send_document(
                             chat_id=GROUP_ID,
                             document=local_filename,
                             thumb="database/thumb.jpeg",
@@ -117,15 +113,13 @@ async def send_new_link_notification(links):
 <blockquote>〽️ Powered by @HeartXBotz</blockquote></b>""",
                         )
 
-                        logging.info(f"Sent document ID: {sent_msg.id}")  # Debugging log
-
-                        await LeoTG.send_message(
+                        await User.send_message(
                             chat_id=GROUP_ID,
                             text="/qbleech1",
                             reply_to_message_id=sent_msg.id,
                         )
 
-                        sent_msg = await LeoTG.send_document(
+                        sent_msg = await User.send_document(
                             chat_id=RSS_CHAT,
                             document=local_filename,
                             thumb="database/thumb.jpeg",
