@@ -33,7 +33,6 @@ async def fetch(url):
         logging.error(f"Error fetching {url}: {str(e)}")
         return None
 
-
 def get_size_in_bytes(size_str):
     size_str = size_str.lower()
     size_match = re.search(r"([\d.]+)\s*(gb|mb)", size_str)
@@ -226,13 +225,7 @@ async def ping_server():
 
 
 async def ping_main_server():
-    try:
-        await User.start()
-        logging.info("User Session started.")
-        await User.send_message(GROUP_ID, "User Session Started")
-    except Exception as e:
-        logging.error(f"Error Starting User: {str(e)}")
-
+    
     while True:
         await asyncio.sleep(250)
         try:
@@ -251,4 +244,4 @@ async def stop_user():
     await User.send_message(GROUP_ID, "User Session Stopped")
     await User.stop()
     logging.info("User Session Stopped.")
-                
+    
