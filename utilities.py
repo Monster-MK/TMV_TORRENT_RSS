@@ -223,9 +223,14 @@ async def ping_server():
             logging.error(f"Unexpected error: {str(e)}")
         await asyncio.sleep(60)
 
-
 async def ping_main_server():
-    
+    try:
+        await User.start()
+        logging.info("User Session started.")
+        await User.send_message(GROUP_ID, "User Session Started")
+    except Exception as e:
+        logging.error(f"Error Starting User: {str(e)}")
+
     while True:
         await asyncio.sleep(250)
         try:
@@ -238,6 +243,7 @@ async def ping_main_server():
             logging.warning("Couldn't connect to the site URL.")
         except Exception:
             traceback.print_exc()
+
 
 
 async def stop_user():
