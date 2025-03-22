@@ -45,16 +45,21 @@ async def is_valid_link(url):
     response, _ = await fetch(url)
     return response is not None and response.status_code == 200
 
+
 async def download_file(url, local_filename):
-    max_retries = 5
+    max_retries = 5  # You can change this value as per your requirement
     for attempt in range(max_retries):
         try:
+            # Fetching the response and expected file size
             response, expected_size = await fetch(url)
+            
             if response:
+                # Writing content to the local file
                 with open(local_filename, "wb") as f:
                     for chunk in response.iter_content(chunk_size=8192):
                         f.write(chunk)
 
+                # Checking if the downloaded file's size matches the expected size
                 if os.path.getsize(local_filename) == expected_size:
                     logging.info(f"Downloaded {local_filename} successfully.")
                     return True
@@ -62,7 +67,7 @@ async def download_file(url, local_filename):
                     logging.error(
                         f"Downloaded file size does not match expected size for {url}. Attempt {attempt + 1}/{max_retries}."
                     )
-                    os.remove(local_filename)
+                    os.remove(local_filename)  # Removing incomplete download
             else:
                 logging.error(
                     f"Failed to fetch {url}. Attempt {attempt + 1}/{max_retries}."
@@ -73,7 +78,7 @@ async def download_file(url, local_filename):
                 f"Failed to download file from {url}: {e}. Attempt {attempt + 1}/{max_retries}."
             )
 
-        await asyncio.sleep(1)
+        await asyncio.sleep(1)  # Wait before retrying
 
     logging.error(f"Failed to download file from {url} after {max_retries} attempts.")
     return False
