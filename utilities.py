@@ -16,7 +16,7 @@ message_lock = asyncio.Lock()
 
 executor = ThreadPoolExecutor()
 
-async def fetch(url):
+"""async def fetch(url):
     scraper = cloudscraper.create_scraper()  # Create a scraper instance to bypass Cloudflare protection
 
     headers = {
@@ -31,7 +31,33 @@ async def fetch(url):
         return response.text
     except requests.exceptions.RequestException as e:
         logging.error(f"Error fetching {url}: {str(e)}")
+        return None"""
+
+
+async def fetch(url):
+    scraper = cloudscraper.create_scraper()  # Cloudflare bypass scraper
+
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
+    }
+
+    loop = asyncio.get_event_loop()
+    try:
+        # Run scraper.get in executor to avoid blocking
+        response = await loop.run_in_executor(None, lambda: scraper.get(url, headers=headers))
+
+        # Handle HTTP errors
+        if response.status_code == 404:
+            logging.error(f"404 Error: {url} not found")
+            return None  # Return None for missing pages
+
+        response.raise_for_status()  # Raise other HTTP errors (500, etc.)
+        return response.text
+
+    except requests.exceptions.RequestException as e:
+        logging.error(f"Error fetching {url}: {str(e)}")
         return None
+
 
 def get_size_in_bytes(size_str):
     size_str = size_str.lower()
