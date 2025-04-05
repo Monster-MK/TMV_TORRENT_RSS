@@ -36,27 +36,34 @@ executor = ThreadPoolExecutor()
 
 async def fetch(url):
     scraper = cloudscraper.create_scraper()  # Cloudflare bypass scraper
-
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
     }
 
     loop = asyncio.get_event_loop()
-    try:
-        # Run scraper.get in executor to avoid blocking
-        response = await loop.run_in_executor(None, lambda: scraper.get(url, headers=headers))
 
-        # Handle HTTP errors
-        if response.status_code == 404:
-            logging.error(f"404 Error: {url} not found")
-            return None  # Return None for missing pages
+    max_retries = 3
+    for attempt in range(1, max_retries + 1):
+        try:
+            # Run scraper.get in executor to avoid blocking
+            response = await loop.run_in_executor(None, lambda: scraper.get(url, headers=headers))
 
-        response.raise_for_status()  # Raise other HTTP errors (500, etc.)
-        return response.text
+            if response.status_code == 404:
+                logging.error(f"[404] Not found: {url}")
+                return None
 
-    except requests.exceptions.RequestException as e:
-        logging.error(f"Error fetching {url}: {str(e)}")
-        return None
+            response.raise_for_status()
+            logging.info(f"[{response.status_code}] Successfully fetched: {url}")
+            return response.text
+
+        except requests.exceptions.RequestException as e:
+            logging.warning(f"Attempt {attempt} failed for {url}: {e}")
+
+            if attempt == max_retries:
+                logging.error(f"Failed to fetch {url} after {max_retries} attempts.")
+                return None
+
+            await asyncio.sleep(1)  # Backoff before retry
 
 
 def get_size_in_bytes(size_str):
