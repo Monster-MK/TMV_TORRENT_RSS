@@ -15,10 +15,10 @@ import cloudscraper  # Import CloudScraper
 executor = ThreadPoolExecutor()
 os.makedirs("downloads", exist_ok=True)
 
+
 User = Client(
     "User", session_string=USER_SESSION_STRING, api_hash=API_HASH, api_id=API_ID
 )
-
 
 async def fetch(url):
     scraper = cloudscraper.create_scraper()
@@ -45,42 +45,35 @@ async def is_valid_link(url):
     response, _ = await fetch(url)
     return response is not None and response.status_code == 200
 
-
 async def download_file(url, local_filename):
-    max_retries = 5  # You can change this value as per your requirement
+    logging.info(f"Starting download: {url}")  # Debugging log
+    max_retries = 5
     for attempt in range(max_retries):
         try:
-            # Fetching the response and expected file size
             response, expected_size = await fetch(url)
-            
             if response:
-                # Writing content to the local file
                 with open(local_filename, "wb") as f:
                     for chunk in response.iter_content(chunk_size=8192):
                         f.write(chunk)
 
-                # Checking if the downloaded file's size matches the expected size
-                if os.path.getsize(local_filename) == expected_size:
+                actual_size = os.path.getsize(local_filename)
+                if actual_size == expected_size:
                     logging.info(f"Downloaded {local_filename} successfully.")
                     return True
                 else:
                     logging.error(
-                        f"Downloaded file size does not match expected size for {url}. Attempt {attempt + 1}/{max_retries}."
+                        f"Downloaded file size mismatch: Expected {expected_size}, got {actual_size}"
                     )
-                    os.remove(local_filename)  # Removing incomplete download
+                    os.remove(local_filename)
             else:
-                logging.error(
-                    f"Failed to fetch {url}. Attempt {attempt + 1}/{max_retries}."
-                )
+                logging.error(f"Failed to fetch {url}. Attempt {attempt + 1}/{max_retries}.")
 
         except Exception as e:
-            logging.error(
-                f"Failed to download file from {url}: {e}. Attempt {attempt + 1}/{max_retries}."
-            )
+            logging.error(f"Download failed for {url}: {e}. Attempt {attempt + 1}/{max_retries}.")
 
-        await asyncio.sleep(1)  # Wait before retrying
+        await asyncio.sleep(1)
 
-    logging.error(f"Failed to download file from {url} after {max_retries} attempts.")
+    logging.error(f"Failed to download file after {max_retries} attempts.")
     return False
                     
 
