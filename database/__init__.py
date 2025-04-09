@@ -45,64 +45,64 @@ async def is_valid_link(url):
     response, _ = await fetch(url)
     return response is not None and response.status_code == 200
 
+
 async def download_file(url, local_filename):
-    logging.info(f"Starting download: {url}")  # Debugging log
-    max_retries = 5
+    max_retries = 5  # Maximum number of retries
     for attempt in range(max_retries):
         try:
             response, expected_size = await fetch(url)
             if response:
                 with open(local_filename, "wb") as f:
+                    # Write in chunks to avoid memory issues with large files
                     for chunk in response.iter_content(chunk_size=8192):
                         f.write(chunk)
 
-                actual_size = os.path.getsize(local_filename)
-                if actual_size == expected_size:
+                # Check if the downloaded file size matches the expected size
+                if os.path.getsize(local_filename) == expected_size:
                     logging.info(f"Downloaded {local_filename} successfully.")
                     return True
                 else:
                     logging.error(
-                        f"Downloaded file size mismatch: Expected {expected_size}, got {actual_size}"
+                        f"Downloaded file size does not match expected size for {url}. Attempt {attempt + 1}/{max_retries}."
                     )
-                    os.remove(local_filename)
+                    os.remove(local_filename)  # Remove incomplete file
             else:
-                logging.error(f"Failed to fetch {url}. Attempt {attempt + 1}/{max_retries}.")
+                logging.error(
+                    f"Failed to fetch {url}. Attempt {attempt + 1}/{max_retries}."
+                )
 
         except Exception as e:
-            logging.error(f"Download failed for {url}: {e}. Attempt {attempt + 1}/{max_retries}.")
+            logging.error(
+                f"Failed to download file from {url}: {e}. Attempt {attempt + 1}/{max_retries}."
+            )
 
-        await asyncio.sleep(1)
+        await asyncio.sleep(1)  # Wait before retrying
 
-    logging.error(f"Failed to download file after {max_retries} attempts.")
+    logging.error(f"Failed to download file from {url} after {max_retries} attempts.")
     return False
                     
 
 async def send_new_link_notification(links):
     async with User:
-        logging.info(f"Sending new links: {links}")  # Debugging log
         if not links:
             await User.send_message(chat_id=GROUP_ID, text="Empty Array")
             return
 
         for link in links:
-            logging.info(f"Processing link: {link}")  # Debugging log
-            local_filename = f"downloads/HeartXBotz {link['name']}.torrent"
+            local_filename = f"downloads/@MadxBotz {link['name']}.torrent"
 
             if await is_valid_link(link["link"]):
                 if await download_file(link["link"], local_filename):
                     try:
-                        logging.info(f"Uploading {local_filename} to Telegram...")  # Debugging log
                         sent_msg = await User.send_document(
                             chat_id=GROUP_ID,
                             document=local_filename,
                             thumb="database/thumb.jpeg",
                             caption=f"""
-<b>@HeartXBotz {link['name']}
+<b>@HeartxBotz {link['name']}
 
 <blockquote>〽️ Powered by @HeartXBotz</blockquote></b>""",
                         )
-
-                        logging.info(f"Sent document ID: {sent_msg.id}")  # Debugging log
 
                         await User.send_message(
                             chat_id=GROUP_ID,
@@ -115,9 +115,9 @@ async def send_new_link_notification(links):
                             document=local_filename,
                             thumb="database/thumb.jpeg",
                             caption=f"""
-<b>@HeartXBotz {link['name']}
+<b>@HeartxBotz {link['name']}
 
-<blockquote>〽️ Powered by @HeartXBotz</blockquote></b>""",
+<blockquote>〽️ Powered by @HeartxBotz</blockquote></b>""",
                         )
                     except Exception as e:
                         logging.error(
@@ -136,8 +136,9 @@ class Database:
     def __init__(self, url, db_name):
         self.db = AsyncIOMotorClient(url)[db_name]
         self.users_coll = self.db.users
+        self.old_links_coll = self.db.links
         self.links_coll = self.db.attachments
-        
+
     async def add_user(self, id):
         if not await self.is_present(id):
             await self.users_coll.insert_one(dict(id=id))
@@ -184,13 +185,13 @@ class Database:
                 new_document = {
                     "img_url": img_url,
                     "name": link["name"],
-                    "link": link_path,
+                    "link": link_path,  # Store only the path
                     "added_on": datetime.utcnow(),
                 }
                 await self.links_coll.insert_one(new_document)
                 print(f"New Document Inserted: {new_document}")
                 await send_new_link_notification([link])
-
+                
 
 db = Database(DATABASE_URL, "HeartxScrap")
 
