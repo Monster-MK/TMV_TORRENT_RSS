@@ -14,20 +14,21 @@ from urllib.parse import urlparse
 
 message_lock = asyncio.Lock()
 
-executor = ThreadPoolExecutor()
+"""executor = ThreadPoolExecutor()"""
+
+executor = ThreadPoolExecutor(max_workers=5)
 
 async def fetch(url):
-    scraper = cloudscraper.create_scraper()  # Create a scraper instance to bypass Cloudflare protection
-
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
     }
 
+    scraper = cloudscraper.create_scraper()
     loop = asyncio.get_event_loop()
+
     try:
-        # Pass the scraper.get function with arguments to run_in_executor
         response = await loop.run_in_executor(executor, lambda: scraper.get(url, headers=headers))
-        response.raise_for_status()  # Raise an error for HTTP errors (4xx, 5xx)
+        response.raise_for_status()
         return response.text
     except requests.exceptions.RequestException as e:
         logging.error(f"Error fetching {url}: {str(e)}")
