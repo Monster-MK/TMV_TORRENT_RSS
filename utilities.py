@@ -33,7 +33,6 @@ async def fetch(url):
         logging.error(f"Error fetching {url}: {str(e)}")
         return None
 
-
 def get_size_in_bytes(size_str):
     size_str = size_str.lower()
     size_match = re.search(r"([\d.]+)\s*(gb|mb)", size_str)
@@ -224,6 +223,7 @@ async def ping_server():
             logging.error(f"Unexpected error: {str(e)}")
         await asyncio.sleep(60)
 
+
 async def ping_main_server():
     try:
         await User.start()
@@ -244,7 +244,6 @@ async def ping_main_server():
             logging.warning("Couldn't connect to the site URL.")
         except Exception:
             traceback.print_exc()
-
 
 
 async def stop_user():
