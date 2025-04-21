@@ -10,13 +10,10 @@ import traceback
 import requests
 from concurrent.futures import ThreadPoolExecutor
 from urllib.parse import urlparse
-from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant
-from pyrogram.errors import FloodWait
-from pyrogram import filters
-from pyrogram.enums import ChatMemberStatus
 import cloudscraper
 
 message_lock = asyncio.Lock()
+
 
 executor = ThreadPoolExecutor()
 
@@ -39,6 +36,19 @@ async def fetch(url):
         return None
 
 
+def get_size_in_bytes(size_str):
+    size_str = size_str.lower()
+    size_match = re.search(r"([\d.]+)\s*(gb|mb)", size_str)
+    if size_match:
+        size_value = float(size_match.group(1))
+        size_unit = size_match.group(2)
+        if size_unit == "gb":
+            return size_value * 1024 * 1024 * 1024
+        elif size_unit == "mb":
+            return size_value * 1024 * 1024
+    return None
+
+
 async def parse_links(html):
     soup = BeautifulSoup(html, "html.parser")
 
@@ -47,22 +57,11 @@ async def parse_links(html):
         if "/index.php?/forums/topic/" in link["href"]:
             if link["href"] not in links:
                 links.append(link["href"])
-            if len(links) == 60:
+
+            if len(links) == 20:
                 break
+
     return links
-
-
-def get_size_in_bytes(size_str):
-    size_str = size_str.strip().lower()
-    size_match = re.search(r"(\d+(?:\.\d+)?)(gb|mb)", size_str, re.IGNORECASE)
-    if size_match:
-        size_value = float(size_match.group(1))
-        size_unit = size_match.group(2).lower()
-        if size_unit == "gb":
-            return size_value * 1024 * 1024 * 1024  # Convert GB to bytes
-        elif size_unit == "mb":
-            return size_value * 1024 * 1024  # Convert MB to bytes
-    return None
 
 
 async def fetch_attachments(page_url):
@@ -187,7 +186,6 @@ async def fetch_attachments(page_url):
 
 
 async def start_processing():
-    BASE_URL = await db.get_base_url()
     main_page_html = await fetch(BASE_URL)
 
     if main_page_html:
@@ -226,7 +224,7 @@ async def ping_server():
             await start_processing()
         except Exception as e:
             logging.error(f"Unexpected error: {str(e)}")
-        await asyncio.sleep(180)
+        await asyncio.sleep(60)
 
 
 async def ping_main_server():
@@ -255,3 +253,4 @@ async def stop_user():
     await User.send_message(GROUP_ID, "User Session Stopped")
     await User.stop()
     logging.info("User Session Stopped.")
+    
