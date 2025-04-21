@@ -114,6 +114,10 @@ async def fetch_attachments(page_url):
             )
             size_in_bytes = get_size_in_bytes(size_tag.text) if size_tag else None
 
+            # === Skip low quality releases like PreDvD, CAM, TS, etc ===
+            if any(term in link_text.lower() for term in ["predvd", "PreDVD", "PRE-HD"]):
+                continue
+
             # Clean the link text
             link_text = link.get_text(strip=True)
             clean_link_text = domain_removal_regex.sub("", link_text)
