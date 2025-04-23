@@ -10,7 +10,7 @@ import logging
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
 from urllib.parse import urlparse
-import cloudscraper  # Import CloudScraper
+#import cloudscraper  # Import CloudScraper
 
 executor = ThreadPoolExecutor()
 os.makedirs("downloads", exist_ok=True)
@@ -20,7 +20,7 @@ User = Client(
     "User", session_string=USER_SESSION_STRING, api_hash=API_HASH, api_id=API_ID
 )
 
-async def fetch(url):
+"""async def fetch(url):
     scraper = cloudscraper.create_scraper()
 
     headers = {
@@ -39,6 +39,21 @@ async def fetch(url):
         return response, content_length  # ✅ Return full response, not just text
     except Exception as e:
         logging.error(f"Error fetching {url}: {str(e)}")
+        return None, 0"""
+
+
+async def fetch(url):
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
+    }
+
+    loop = asyncio.get_event_loop()
+    try:
+        response = await loop.run_in_executor(executor, requests.get, url, headers)
+        response.raise_for_status()
+        return response, int(response.headers.get("Content-Length", 0))
+    except requests.exceptions.RequestException as e:
+        logging.error(f"Error downloading {url}: {str(e)}")
         return None, 0
         
 async def is_valid_link(url):
