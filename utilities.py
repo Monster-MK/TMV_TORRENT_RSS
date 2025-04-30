@@ -10,7 +10,7 @@ import traceback
 import requests
 from concurrent.futures import ThreadPoolExecutor
 from urllib.parse import urlparse
-#import cloudscraper
+import cloudscraper
 
 message_lock = asyncio.Lock()
 
@@ -18,7 +18,7 @@ message_lock = asyncio.Lock()
 executor = ThreadPoolExecutor()
 
 
-"""async def fetch(url):
+async def fetch(url):
 
     scraper = cloudscraper.create_scraper()
     
@@ -33,9 +33,9 @@ executor = ThreadPoolExecutor()
         return response.text
     except requests.exceptions.RequestException as e:
         logging.error(f"Error fetching {url}: {str(e)}")
-        return None"""
+        return None
 
-async def fetch(url):
+"""async def fetch(url):
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
     }
@@ -48,7 +48,7 @@ async def fetch(url):
     except requests.exceptions.RequestException as e:
         logging.error(f"Error fetching {url}: {str(e)}")
         return None
-
+"""
 
 def get_size_in_bytes(size_str):
     size_str = size_str.lower()
