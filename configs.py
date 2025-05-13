@@ -5,13 +5,13 @@ API_ID = genv("API_ID", "22977776")
 
 API_HASH = genv("API_HASH", "2ac7223d720bdeec757cbc88ced57224")
 
-BOT_TOKEN = genv("BOT_TOKEN", "7551999112:AAHfWb5P1THjOokzGbMbdkIR-MxztgWVWTI")
+BOT_TOKEN = genv("BOT_TOKEN", "7765333178:AAGfUSmTatPWNxVjdlm5zkjAKySYUn0w3SA")
 
 SUPPORT_GROUP = genv("SUPPORT_GROUP", "TGHelpingGroup")
 
 UPDATES_CHANNEL = genv("UPDATES_CHANNEL", "TamizhFiles")
 
-GROUP_ID = int(genv("GROUP_ID", "-1002325685641"))
+GROUP_ID = int(genv("GROUP_ID", "-1002539559622"))
 
 DATABASE_URL = genv(
     "DATABASE_URL",
@@ -20,14 +20,14 @@ DATABASE_URL = genv(
 
 USER_SESSION_STRING = genv(
     "USER_SESSION_STRING",
-    "BQFenPAAZyCBmRgAiqt1dK8ZhrF34aaL58bIKcmH5Cohvm_fKM94GVJZ4wI2hLUs0nz5K3y73ujiVz4A_MqLOR0N-DnKMzSrBOTH_95MW3ti2W9sq4vbK4h1zb2Dyq5SPMj8QzySOoNiEk3BpCbyn-YmPqyw_ElZzeTHfyQ1jgML_Oe4JxTCiANrAtbD6qc2p0ljOA_yvglwXoS0LZg_66Ms6yf-iHDQqwilnVPYSL3II5vsDX4ULKDcJsSNKiCmKfEzgp7lECI9jz9jvC0niMG5Tqk8eb6s525WiXmRx3melpKUgmlBcqI5v3MKFHcGH3dFdMGQ63e6pHjpLBxgJHDKW4BSHwAAAAGTFHWXAA",
+    "BQFenPAAcsILCXJBkxTJ67gXJseKf-SKbRVgP6L2nJ5Yj8yPZSOp0SEKAeUPH3hIXrFPbuT85RHy8vNUwopv0yuGQBfjWGt2tmStQXPK0uKWMUuK0Wre5nerE0wNjl_j0DIaKhh2hwucH_B1ciayGsk_jmXwslnz8foCsGUZdFMqlQmXg4WkT9SL2kHxqgf15Pe4OXVV1P8bfz2_9bmYDQUsCtSKQtz3CxcymAG5-VXCgLrnSCkAYeJykNyfZfA2EACMnR2xTTg0IW2RStQCcFrQZvOL2UQfxEuBYSJhYcQJLxye9v8rxaBwc-dEpmzhtDBARkgtHbdpEw4EaVSAdMV3ezQksgAAAAHBsGPqAA",
 )
 
 SERVER_URL = genv("SERVER_URL", "https://heartxscrapper.koyeb.app/")
 
 
 RSS_CHAT = int(
-    genv("RSS_CHAT", "-1002426963681")
+    genv("RSS_CHAT", "-1002639178211")
 )  # add the channel id where the torrent files need to be sent
 
 """BASE_URL = genv(
