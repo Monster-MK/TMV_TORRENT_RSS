@@ -147,8 +147,9 @@ async def fetch_attachments(page_url):
             link_text = link.get_text(strip=True)
 
             # === Skip low quality releases like PreDvD, CAM, TS, etc ===
-            if any(term in link_text.lower() for term in ["predvd", "cam", "ts", "hdcam", "hdts", "pre-hd"]):
-                continue
+            #Remove The hash it skipped dvd links 
+            #if any(term in link_text.lower() for term in ["predvd", "cam", "ts", "hdcam", "hdts", "pre-hd"]):
+                #continue
 
             # Clean the link text
             clean_link_text = domain_removal_regex.sub("", link_text)
@@ -289,3 +290,4 @@ async def stop_user():
     await User.stop()
     logging.info("User Session Stopped.")
     
+
