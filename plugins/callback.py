@@ -31,10 +31,10 @@ async def callback(bot, query):
                     [
                         InlineKeyboardButton("Aʙᴏᴜᴛ ★", callback_data="about"),
                         InlineKeyboardButton(
-                            "Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ ⌘", url="https://t.me/TGHelpingGroup"
+                            "Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ ⌘", url="https://t.me/MKxSupport_Group"
                         ),
                     ],
-                    [InlineKeyboardButton("Bᴀᴄᴋ ✰", callback_data="start")],
+                    [InlineKeyboardButton("Bᴀᴄᴋ 𖦹", callback_data="start")],
                 ]
             ),
         )
@@ -46,10 +46,10 @@ async def callback(bot, query):
                 [
                     [
                         InlineKeyboardButton(
-                            "Uᴘᴅᴀᴛᴇs 🙌", url="https://t.me/HeartXBotz"
+                            "Sᴏᴜʀᴄᴇ Cᴏᴅᴇ 😎", url="https://t.me/Monster_Mk_Bot"
                         ),
                         InlineKeyboardButton(
-                            "Dᴇᴠᴇʟᴏᴘᴇʀ ⚡", url="https://t.me/Heart_thieft"
+                            "Uᴘᴅᴀᴛᴇs ⚡", url="https://t.me/MKxBoTz"
                         ),
                     ],
                     [InlineKeyboardButton("Bᴀᴄᴋ 𖦹", callback_data="start")],
@@ -64,17 +64,17 @@ async def callback(bot, query):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("Hᴇʟᴩ Mᴇɴᴜ", callback_data="help"),
+                        InlineKeyboardButton("Bᴏᴛ Sᴇᴛᴛɪɴɢs ⚙️", callback_data="help"),
                     ],
                     [
                         InlineKeyboardButton(
-                            "Cʜᴀɴɴᴇʟ", url=f"https://t.me/HeartXBotz"
+                            "Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ 💢", url=f"https://t.me/MKxSupport_Group"
                         ),
                         InlineKeyboardButton(
-                            "Sᴜᴩᴩᴏʀᴛ", url=f"https://t.me/TGHelpingGroup"
+                            "Dᴇᴠᴇʟᴏᴘᴇʀ 👨‍💻", url=f"https://t.me/Monster_Mk_Bot"
                         ),
                     ],
-                    [InlineKeyboardButton("Cʟᴏsᴇ ❌", callback_data="delete")],
+                    [InlineKeyboardButton("✇ Jᴏɪɴ Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ ✇", url=f"https://t.me/MKxBoTz")],
                 ]
             ),
         )
