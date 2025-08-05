@@ -23,7 +23,7 @@ USER_SESSION_STRING = genv(
     "BQHFdmsAaJsQo0jyIfABs1F_ThBCKDCCIHOKiQFr3YI1uwcLFcrri-zbfMxyrO3s0IlL7Jq9ebftflfgvz-iE_SPt2t0ZMNhd6V7-ScAkAniCQfz12LTKjCCKZQT6B0uwa0At-rX4NuKk0krqaDOhH9p0KVbqeD1Hgcnv54egnHxW2MQcZ04xW7UwcQioES_Io7yX6ELMDM5VeZCGsrmSaapM2Qhg1Q7_PPd86p113MkX7Aumm7Uos4x1uKPtesRAlaxWwelS72Q72SrphivVo7l2cR2u0UKx67btorBz-vwtJ7aVepPfsJES0kUrKFDPgNv3Bbc-mjKgt7UsN1qIzVjolvQtwAAAAHHZjAPAA",
 )
 
-SERVER_URL = genv("SERVER_URL", "https://mktmvtorrent-53ed2cd305ff.herokuapp.com/")
+SERVER_URL = genv("SERVER_URL", "https://tmvautorssx-f0ac6819aa6b.herokuapp.com/")
 
 
 RSS_CHAT = int(
@@ -71,6 +71,7 @@ ABOUT_TXT = """<b>╔════❰ Mᴋ x BᴏTᴢ ❱═══❍
 
 
 WEEK_RELEASES_PATH = genv("RELEASES_PATH", "/index.php?/forums/topic/")  # dont change this
+
 
 
 
