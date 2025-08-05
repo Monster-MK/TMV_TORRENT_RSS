@@ -1,3 +1,11 @@
+<!-- RAINBOW LINE TOP -->
+<img src="https://github.com/SudoR2spr/SudoR2spr/raw/main/assets/line-neon.gif" width="100%">
+
+<!-- GIF HEADER -->
+<img src="https://github.com/SudoR2spr/SudoR2spr/blob/main/assets/angel-op/spiderman.gif" width="100%">
+
+<img src="https://github.com/SudoR2spr/SudoR2spr/raw/main/assets/line-neon.gif" width="100%">
+
 # ✈️ Depoly
 
 <details><summary>Deploy To Heroku ✨</summary>
@@ -30,3 +38,4 @@ python3 bot.py
 </pre>
 </p>
 </details>
+
