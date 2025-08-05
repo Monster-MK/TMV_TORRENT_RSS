@@ -136,9 +136,9 @@ async def send_new_link_notification(links):
                             document=local_filename,
                             thumb="database/thumb.jpeg",
                             caption=f"""
-<b>@HeartxBotz {link['name']}
+<b>@MKxBoTz {link['name']}
 
-<blockquote>〽️ Powered by @HeartXBotz</blockquote></b>""",
+<blockquote>〽️ Pᴏᴡᴇʀᴇᴅ Bʏ : @MKxBoTz</blockquote></b>""",
                         )
 
                         await User.send_message(
@@ -152,9 +152,9 @@ async def send_new_link_notification(links):
                             document=local_filename,
                             thumb="database/thumb.jpeg",
                             caption=f"""
-<b>@HeartxBotz {link['name']}
+<b>@MKxBoTz {link['name']}
 
-<blockquote>〽️ Powered by @HeartxBotz</blockquote></b>""",
+<blockquote>〽️ Pᴏᴡᴇʀᴇᴅ Bʏ : @MKxBoTz</blockquote></b>""",
                         )
                     except Exception as e:
                         logging.error(
@@ -231,4 +231,5 @@ class Database:
                 
 
 db = Database(DATABASE_URL, "HeartxScrap")
+
 
