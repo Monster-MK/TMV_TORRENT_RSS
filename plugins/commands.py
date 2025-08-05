@@ -25,14 +25,14 @@ async def start_handler(c, m):
 
         keyboard = InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("Hᴇʟᴩ Mᴇɴᴜ", callback_data="help")],
+                [InlineKeyboardButton("Bᴏᴛ Sᴇᴛᴛɪɴɢs ⚙️", callback_data="help")],
                 [
-                    InlineKeyboardButton("Cʜᴀɴɴᴇʟ", url="https://t.me/HeartXBotz"),
+                    InlineKeyboardButton("Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ 💢", url="https://t.me/MKxSupport_Group"),
                     InlineKeyboardButton(
-                        "Sᴜᴩᴩᴏʀᴛ", url=f"https://t.me/TGHelpingGroup"
+                        "Dᴇᴠᴇʟᴏᴘᴇʀ 👨‍💻", url=f"https://t.me/Monster_Mk_Bot"
                     ),
                 ],
-                [InlineKeyboardButton("Cʟᴏsᴇ ❌", callback_data="delete")],
+                [InlineKeyboardButton("✇ Jᴏɪɴ Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ ✇", url=f"https://t.me/MKxBoTz")],
             ]
         )
 
@@ -47,7 +47,7 @@ async def link_count(c, m):
     try:
         total_link_count = await db.count_all_links()
 
-        msg = f"<b>📍Total Movies Scrapped : <code>{total_link_count}</code> \n\n<blockquote>〽️ Powered by @HeartXBotz</blockquote></b>"
+        msg = f"<b>📍Total Movies Scrapped : <code>{total_link_count}</code> \n\n<blockquote>〽️ Pᴏᴡᴇʀᴇᴅ Bʏ : @MKxBoTz</blockquote></b>"
         await m.reply_text(msg)
     except Exception as e:
         await m.reply_text(f"🌶️ Error retrieving counts: {e}")
@@ -133,7 +133,7 @@ async def page_scrap(client, message):
             caption += "<b>\n\nNo links available.</b>"
             captions.append(caption)
 
-        captions[-1] += "\n\n<b><blockquote>〽️ Powered by @HeartXBotz</blockquote></b>"
+        captions[-1] += "\n\n<b><blockquote>〽️ Pᴏᴡᴇʀᴇᴅ Bʏ : @MKxBoTz</blockquote></b>"
 
         if img_url:
             await message.reply_photo(photo=img_url)
@@ -182,7 +182,7 @@ async def movie_result_1(client, message):
             else:
                 caption += "<b>\n\nNo links available.</b>"
 
-            caption += "\n\n<b><blockquote>〽️ Powered by @HeartXBotz</blockquote></b>"
+            caption += "\n\n<b><blockquote>〽️ Pᴏᴡᴇʀᴇᴅ Bʏ : @MKxBoTz</blockquote></b>"
 
             if len(caption) > 1000:
                 if img_url:
@@ -253,7 +253,7 @@ async def movie_result_2(client, message):
             else:
                 caption += "<b>\n\nNo links available.</b>"
 
-            caption += "\n\n<b><blockquote>〽️ Powered by @HeartXBotz</blockquote></b>"
+            caption += "\n\n<b><blockquote>〽️ Pᴏᴡᴇʀᴇᴅ Bʏ : @MKxBoTz</blockquote></b>"
 
             if len(caption) > 1000:
                 if img_url:
@@ -315,7 +315,7 @@ async def send_initial_document(client, message, user_id, index):
     reply_markup = InlineKeyboardMarkup([buttons])
 
     caption = document.get("caption", "No Caption")
-    caption += "\n\n<b><blockquote>〽️ Powered by @HeartXBotz</blockquote></b>"
+    caption += "\n\n<b><blockquote>〽️ Pᴏᴡᴇʀᴇᴅ Bʏ : @MKxBoTz</blockquote></b>"
 
     if img_url:
         await message.reply_photo(
@@ -345,7 +345,7 @@ async def show_document(client, message, user_id, index):
     reply_markup = InlineKeyboardMarkup([buttons])
 
     caption = document.get("caption", "No Caption")
-    caption += "\n\n<b><blockquote>〽️ Powered by @HeartXBotz</blockquote></b>"
+    caption += "\n\n<b><blockquote>〽️ Pᴏᴡᴇʀᴇᴅ Bʏ : @MKxBoTz</blockquote></b>"
 
     if img_url:
         try:
@@ -405,3 +405,4 @@ def split_caption(document):
     )
 
     return caption_parts
+
