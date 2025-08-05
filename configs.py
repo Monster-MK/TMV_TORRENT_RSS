@@ -1,33 +1,33 @@
 from os import getenv as genv
 from pyrogram import Client
 
-API_ID = genv("API_ID", "22977776")
+API_ID = genv("API_ID", "20517170")
 
-API_HASH = genv("API_HASH", "2ac7223d720bdeec757cbc88ced57224")
+API_HASH = genv("API_HASH", "f09e5c91dd864f01063ff63827832137")
 
-BOT_TOKEN = genv("BOT_TOKEN", "7765333178:AAGfUSmTatPWNxVjdlm5zkjAKySYUn0w3SA")
+BOT_TOKEN = genv("BOT_TOKEN", "8496690354:AAGV_8l4w9ygl535-4ghKjJpI4QbIC7NU2k")
 
 SUPPORT_GROUP = genv("SUPPORT_GROUP", "TGHelpingGroup")
 
-UPDATES_CHANNEL = genv("UPDATES_CHANNEL", "TamizhFiles")
+UPDATES_CHANNEL = genv("UPDATES_CHANNEL", "MKxBoTz")
 
-GROUP_ID = int(genv("GROUP_ID", "-1002539559622"))
+GROUP_ID = int(genv("GROUP_ID", "-1002802243876"))
 
 DATABASE_URL = genv(
     "DATABASE_URL",
-    "mongodb+srv://jeevanantham8157:1055221@filestorebot.rahsk.mongodb.net/?retryWrites=true&w=majority&appName=Filestorebot",
+    "mongodb+srv://mkxcloud123:jc6PH2BdnK6orvoj@cluster0.mnwmku3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
 )
 
 USER_SESSION_STRING = genv(
     "USER_SESSION_STRING",
-    "BQFenPAAkh0eSHyQWXPPi_jwAbsYXhhbkVcCKy1KDx5HoA6cGANRpKcRx5j1Lt7Hqxgq-1SOgludHKU_LGrC1cFt8qH0ibpGI7dv4auvqfkcXdyim_CLvOaFwKHkzVtiIn_rb8emNISDYOT-Niitt3nS1ofPI2Y0MJAg8QRZn3PumChqtVIdBRqg2w7elWpB3kWnbYy3sAjoM8WfRLcSZDNauMGtf7L2QEJvtvjEP7HZg2r1raaxuKBa3a4OImJcMh5UgG-9dbLyQ0N8pZfEJeIuBX-vZVqmhrD_SWtQR_mIsF4eF7-pjIy4hJlOCCBD-snx6kWtgKJ2cjnvllPy-fL7CJOO2AAAAAHBsGPqAA",
+    "BQHFdmsAaJsQo0jyIfABs1F_ThBCKDCCIHOKiQFr3YI1uwcLFcrri-zbfMxyrO3s0IlL7Jq9ebftflfgvz-iE_SPt2t0ZMNhd6V7-ScAkAniCQfz12LTKjCCKZQT6B0uwa0At-rX4NuKk0krqaDOhH9p0KVbqeD1Hgcnv54egnHxW2MQcZ04xW7UwcQioES_Io7yX6ELMDM5VeZCGsrmSaapM2Qhg1Q7_PPd86p113MkX7Aumm7Uos4x1uKPtesRAlaxWwelS72Q72SrphivVo7l2cR2u0UKx67btorBz-vwtJ7aVepPfsJES0kUrKFDPgNv3Bbc-mjKgt7UsN1qIzVjolvQtwAAAAHHZjAPAA",
 )
 
-SERVER_URL = genv("SERVER_URL", "https://heartxscrapper.koyeb.app/")
+SERVER_URL = genv("SERVER_URL", "https://mktmvtorrent-53ed2cd305ff.herokuapp.com/")
 
 
 RSS_CHAT = int(
-    genv("RSS_CHAT", "-1002639178211")
+    genv("RSS_CHAT", "-1002692574634")
 )  # add the channel id where the torrent files need to be sent
 
 """BASE_URL = genv(
@@ -40,29 +40,53 @@ BASE_URL = genv("BASE_URL", "https://www.1tamilmv.ms").lower() # update the main
 
 
 
-START_TXT = """<b>Hello {}, I am a Scrapper Bot!.
-๏ I can scrap links from 1tamilmv and update it in Bot..
-๏ Click on the help menu button below to get information about my commands.
-๏ Powered By @HeartXbotz</b>"""
+START_TXT = """<b>Hᴇʟʟᴏ {} 👋
+
+I Aᴍ A Sᴄʀᴀᴘᴘᴇʀ Bᴏᴛ !!! 😎
+
+๏ I Cᴀɴ Sᴄʀᴀᴘ Lɪɴᴋs Fʀᴏᴍ Tᴀᴍɪʟᴍᴠ Aɴᴅ Uᴘᴅᴀᴛᴇ Iᴛ Iɴ Bᴏᴛ.
+
+๏ Cʟɪᴄᴋ Oɴ Tʜᴇ Hᴇʟᴘ Mᴇɴᴜ Bᴜᴛᴛᴏɴ Bᴇʟᴏᴡ Tᴏ Gᴇᴛ Iɴғᴏʀᴍᴀᴛɪᴏɴ Aʙᴏᴜᴛ Mʏ Cᴏᴍᴍᴀɴᴅs.
+
+<blockquote>🔰 Pᴏᴡᴇʀᴇᴅ Bʏ : <a href="https://t.me/MKxBoTz">𝖬𝗄 𝗑 𝖡𝗈𝖳𝗓</a></blockquote></b>"""
 
 
-HELP_TXT = """Send any Movie Name and I will provide torrent links.
+HELP_TXT = """Sᴇɴᴅ Aɴʏ Mᴏᴠɪᴇ Nᴀᴍᴇ Aɴᴅ I Wɪʟʟ Pʀᴏᴠɪᴅᴇ Tᴏʀʀᴇɴᴛ Lɪɴᴋs !!! 😍
 
-Available Commands
+!!! Aᴠᴀɪʟᴀʙʟᴇ Cᴏᴍᴍᴀɴᴅs !!!
 
--> /get - To Get Torrent Link of that Movie
--> /list - To get last 10 Movie/Series details
+-> /get - Tᴏ Gᴇᴛ Tᴏʀʀᴇɴᴛ Lɪɴᴋ Oғ Tʜᴀᴛ Mᴏᴠɪᴇ !!! 🎬
+-> /list - Tᴏ Gᴇᴛ Lᴀsᴛ 𝟷𝟶 Mᴏᴠɪᴇ / Sᴇʀɪᴇs Dᴇᴛᴀɪʟs !!! ❤️‍🔥
 
-Updates - ⍟ @HeartXBotz"""
+Uᴘᴅᴀᴛᴇs - ⍟ @MKxBoTz"""
 
-ABOUT_TXT = """<b>╔════❰ HeartXBotz ❱═══❍
+ABOUT_TXT = """<b>╔════❰ Mᴋ x BᴏTᴢ ❱═══❍
 ║ ┏━━━━━━━━━❥
-║ ┣ Mʏ ɴᴀᴍᴇ -> {}
-║ ┣ Uᴘᴅᴀᴛᴇꜱ -> <a href="tg://HeartXBotz">••Bᴏᴛs••</a>
+║ ┣ Mʏ Nᴀᴍᴇ -> {}
+║ ┣ Uᴘᴅᴀᴛᴇꜱ -> <a href="tg://MKxBoTz">••Bᴏᴛs••</a>
 ║ ┣ 𝖲ᴜᴘᴘᴏʀᴛ -> <a href="tg://TGHelpingGroup"> Bᴏᴛs Sᴜᴩᴩᴏʀᴛ</a>
-║ ┣ ๏ Cʜᴇᴄᴋ ʜᴇʟᴘ ᴛᴏ ᴋɴᴏᴡ ᴍᴏʀᴇ.
+║ ┣ ๏ Cʜᴇᴄᴋ Hᴇʟᴘ Tᴏ Kɴᴏᴡ Mᴏʀᴇ ...
 ║ ┗━━━━━━━━━❥
-╚═════❰ @HeartThieft ❱═════❍</b>"""
+╚═════❰ Mᴋ x BᴏTᴢ ❱═════❍</b>"""
 
 
 WEEK_RELEASES_PATH = genv("RELEASES_PATH", "/index.php?/forums/topic/")  # dont change this
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
