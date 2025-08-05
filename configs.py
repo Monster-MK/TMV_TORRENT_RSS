@@ -27,7 +27,7 @@ SERVER_URL = genv("SERVER_URL", "https://mktmvtorrent-53ed2cd305ff.herokuapp.com
 
 
 RSS_CHAT = int(
-    genv("RSS_CHAT", "-1002692574634")
+    genv("RSS_CHAT", "-1002605326903")
 )  # add the channel id where the torrent files need to be sent
 
 """BASE_URL = genv(
@@ -71,6 +71,7 @@ ABOUT_TXT = """<b>╔════❰ Mᴋ x BᴏTᴢ ❱═══❍
 
 
 WEEK_RELEASES_PATH = genv("RELEASES_PATH", "/index.php?/forums/topic/")  # dont change this
+
 
 
 
