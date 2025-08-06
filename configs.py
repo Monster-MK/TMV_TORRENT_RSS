@@ -11,7 +11,7 @@ SUPPORT_GROUP = genv("SUPPORT_GROUP", "TGHelpingGroup")
 
 UPDATES_CHANNEL = genv("UPDATES_CHANNEL", "MKxBoTz")
 
-GROUP_ID = int(genv("GROUP_ID", "-1002802243876"))
+GROUP_ID = int(genv("GROUP_ID", "-1002711805200"))
 
 DATABASE_URL = genv(
     "DATABASE_URL",
@@ -20,7 +20,7 @@ DATABASE_URL = genv(
 
 USER_SESSION_STRING = genv(
     "USER_SESSION_STRING",
-    "BQHFdmsAaJsQo0jyIfABs1F_ThBCKDCCIHOKiQFr3YI1uwcLFcrri-zbfMxyrO3s0IlL7Jq9ebftflfgvz-iE_SPt2t0ZMNhd6V7-ScAkAniCQfz12LTKjCCKZQT6B0uwa0At-rX4NuKk0krqaDOhH9p0KVbqeD1Hgcnv54egnHxW2MQcZ04xW7UwcQioES_Io7yX6ELMDM5VeZCGsrmSaapM2Qhg1Q7_PPd86p113MkX7Aumm7Uos4x1uKPtesRAlaxWwelS72Q72SrphivVo7l2cR2u0UKx67btorBz-vwtJ7aVepPfsJES0kUrKFDPgNv3Bbc-mjKgt7UsN1qIzVjolvQtwAAAAHHZjAPAA",
+    "BQGv8noAXKfLier2C1U-jKacZA_AgnubxUro6b4o3SNNuy8uhHrkM0WzybmBIbYsNoSKG96Uqe0qa10okwXDxVh2AhBvl1X12LuSGcMHFgyDZzwyMQfruDDN6lscNDOP6jogIgDR-QUlwqp7d6hfqxLfzZrWf7iB0NfXBi_7AD1f_5rXQldZBiB5qnpR3spPmgEzJVjiJjEyqFeoCNgC9ehJa3x2YXR_UlM04Erl8Z26RYQrLWdUq58Lr9hJnfvKKTJaHQ39F1Ycthk9c9HRcLEtNsbK2xXJDmus40YqDxB_g9XLGBAC71byTJLbINq271eBjGZ9ntPOwvRgxq80hshJFtnQAAAAHjjduEAA",
 )
 
 SERVER_URL = genv("SERVER_URL", "https://tmvautorssx-f0ac6819aa6b.herokuapp.com/")
@@ -71,6 +71,7 @@ ABOUT_TXT = """<b>╔════❰ Mᴋ x BᴏTᴢ ❱═══❍
 
 
 WEEK_RELEASES_PATH = genv("RELEASES_PATH", "/index.php?/forums/topic/")  # dont change this
+
 
 
 
