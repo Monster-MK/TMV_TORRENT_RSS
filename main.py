@@ -1,17 +1,21 @@
-# main.py
-
-from tmv_scraper import get_torrent_data
+from tmv_scraper import fetch_rss
 
 def main():
-    # உங்கள் torrent விவரக்கை url இட்டுக்கோங்க
-    url = "https://example.com/torrent-page"
+    # உங்க RSS feed URL இங்கே போடு
+    url = "https://example.com/rss-feed"
 
-    # Torrent data process
-    get_torrent_data(url)
+    # RSS data fetch
+    entries = fetch_rss(url)
 
-    # Memory clear (avoid R14 error in Heroku)
+    # Data print or process
+    for item in entries:
+        print(f"Title: {item.title}")
+        print(f"Link: {item.link}")
+        print("-" * 40)
+
+    # Memory release
     try:
-        del url
+        del entries
     except:
         pass
 
