@@ -34,7 +34,7 @@ RSS_CHAT = int(
     "BASE_URL", "https://www.1tamilmv.com"
 ).lower() """ # update the main domain if changed
 
-BASE_URL = genv("BASE_URL", "https://www.1tamilmv.blue/").lower() # update the main domain if changed
+BASE_URL = genv("BASE_URL", "https://www.1tamilmv.ms").lower() # update the main domain if changed
 
 #change the theme as you required
 
@@ -71,6 +71,7 @@ ABOUT_TXT = """<b>╔════❰ Mᴋ x BᴏTᴢ ❱═══❍
 
 
 WEEK_RELEASES_PATH = genv("RELEASES_PATH", "/index.php?/forums/topic/")  # dont change this
+
 
 
 
