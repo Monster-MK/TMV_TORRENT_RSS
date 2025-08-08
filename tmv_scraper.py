@@ -1,7 +1,7 @@
-from scraper_utils import fetch_html, parse_html_with_bs4
+import feedparser
 
-def get_torrent_data(url):
-    html = fetch_html(url)
-    if html:
-        title = parse_html_with_bs4(html)
-        print(f"Page Title: {title}")
+def fetch_rss(url):
+    feed = feedparser.parse(url)
+    # RSS list-ஐ 10 items மட்டும் எடுக்க
+    entries = feed.entries[:10]
+    return entries
