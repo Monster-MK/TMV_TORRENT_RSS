@@ -230,6 +230,7 @@ class Database:
                 await send_new_link_notification([link])
                 
 
-db = Database(DATABASE_URL, "HeartxScrap")
+db = Database(DATABASE_URL, "MkxScrap")
+
 
 
